@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog-master.yaml
+  - changeSet:
+      id: 0
+      author: max
+      changes:
+        - createTable:
+            tableName: human
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(64)
+              - column:
+                  name: last_name
+                  type: VARCHAR(64)
+        - createTable:
+            tableName: hibernate_sequence
+            columns:
+              - column:
+                  name: next_val
+                  type: BIGINT(20)
+        - insert:
+            tableName: hibernate_sequence
+            columns:
+              - column:
+                  name: next_val
+                  value: 1
+      rollback:
+        - delete:
+            tableName: hibernate_sequence
+            where: next_val in (1)
