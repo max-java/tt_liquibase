@@ -1,8 +1,8 @@
 databaseChangeLog:
   - changeSet:
       tagDatabase:
-        tag: v0.2
-      id: 2
+        tag: v0.4
+      id: 4
       author: max
       comment: "Pass field has been added to Human bean"
       changes:

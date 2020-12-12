@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      tagDatabase:
+        tag: v0.2
+      id: 2
+      author: max
+      comment: "Database initialization script"
+      changes:
+        - sql:
+            sql: CREATE TABLE `human` (
+              `id` bigint(20) NOT NULL AUTO_INCREMENT,
+              `name` varchar(64) DEFAULT NULL,
+              `last_name` varchar(64) DEFAULT NULL,
+              PRIMARY KEY (`id`)
+              ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+      rollback:
+        - sql:
+            sql: drop table `human`;
+

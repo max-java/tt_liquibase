@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      tagDatabase:
+        tag: v0.1
+      id: 1
+      author: max
+      comment: "Hibernate initialization sequence"
+      changes:
+        - sql:
+            sql:
+              CREATE TABLE `hibernate_sequence` (
+              `next_val` bigint(20) DEFAULT NULL
+              ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+              insert into `hibernate_sequence` values (1);
+      rollback:
+        - sql:
+            sql: drop table `hibernate_sequence`;
+
