@@ -21,4 +21,5 @@ public class Human {
     String name;
     String lastName;
     String email;
+    String pass;
 }

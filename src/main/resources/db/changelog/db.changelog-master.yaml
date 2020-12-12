@@ -36,3 +36,5 @@ databaseChangeLog:
       rollback:
         - sql:
             sql: ALTER TABLE `human` drop COLUMN `email`;
+  - include:
+      file: db/changelog/db.changelog-v0.1.yaml

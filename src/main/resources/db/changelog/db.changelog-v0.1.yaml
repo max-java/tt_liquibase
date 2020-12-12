@@ -1,22 +1,14 @@
-# not working
-#databaseChangeLog:
+databaseChangeLog:
   - changeSet:
       tagDatabase:
-        tag: v0.1
-      id: 1
+        tag: v0.2
+      id: 2
       author: max
-      comment: "Email field has been added to Human bean"
+      comment: "Pass field has been added to Human bean"
       changes:
-        - addColumn:
-            tableName: human
-            column:
-              name: email
-              type: varchar(50)
-#      rollback:
-#        - dropColumn:
-#            columns:
-#              - column:
-#                  name: email
-#            schemaName: public
-#            tableName: human
+        - sql:
+            sql: ALTER TABLE `human` ADD `pass` varchar (255);
+      rollback:
+        - sql:
+            sql: ALTER TABLE `human` drop COLUMN `pass`;
 
