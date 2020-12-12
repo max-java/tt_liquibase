@@ -20,4 +20,5 @@ public class Human {
     Long id;
     String name;
     String lastName;
+    String email;
 }

@@ -1,0 +1,22 @@
+# not working
+#databaseChangeLog:
+  - changeSet:
+      tagDatabase:
+        tag: v0.1
+      id: 1
+      author: max
+      comment: "Email field has been added to Human bean"
+      changes:
+        - addColumn:
+            tableName: human
+            column:
+              name: email
+              type: varchar(50)
+#      rollback:
+#        - dropColumn:
+#            columns:
+#              - column:
+#                  name: email
+#            schemaName: public
+#            tableName: human
+

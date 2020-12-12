@@ -1,3 +1,4 @@
+# https://docs.liquibase.com/change-types/community/add-column.html
 # just a cheat sheet to create database and user;
 CREATE DATABASE TT_LIQUIBASE
     DEFAULT CHARACTER SET utf8
@@ -5,3 +6,4 @@ CREATE DATABASE TT_LIQUIBASE
 
 CREATE USER ttliq@localhost IDENTIFIED BY '1234';
 GRANT ALL ON TT_LIQUIBASE.* TO ttliq@localhost;
+
