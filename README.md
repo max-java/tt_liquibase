@@ -18,7 +18,7 @@ scripts and follow version & id conventions.
    spring.jpa.hibernate.ddl-auto=validate
 ```
 4. Create initial file `src/main/resources/db/changelog/db.changelog-master.yaml` It should be named exactly as is.
-5. You could use single file, as it in https://github.com/max-java/tt_liquibase/commit/a4eefff0ad293b27cf9c9e09691be02756c11c8c commit, but more preferable way to use `db.changelog-master.yaml` as root and scan directory for updates. 
+5. You could use single file, as it in tt_liquibase@a4eefff commit, but more preferable way to use `db.changelog-master.yaml` as root and scan directory for updates. 
    
 To avoid changing master file (and accidentally broke) it has   
 ```yaml
