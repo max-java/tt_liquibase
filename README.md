@@ -45,3 +45,5 @@ To track changes should be useful
 ```sql
 select ID, TAG, COMMENTS, FILENAME from DATABASECHANGELOG;
 ```
+I.e. it used in DbChanges.class to pring Db version on application startup
+![log image](img/dbLog.png)
