@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="mikas (generated)" id="1640195471403-1">
+        <createSequence sequenceName="company_id_seq"/>
+    </changeSet>
+    <changeSet author="mikas (generated)" id="1640195471403-2">
+        <createSequence sequenceName="employees_id_seq"/>
+    </changeSet>
+    <changeSet author="mikas (generated)" id="1640195471403-3">
+        <createTable remarks="Company Data" tableName="company">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true" primaryKeyName="company_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="employee" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mikas (generated)" id="1640195471403-4">
+        <createTable remarks="Employees Data" tableName="employees">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true" primaryKeyName="employees_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mikas (generated)" id="1640195471403-5">
+        <addUniqueConstraint columnNames="name" constraintName="company_name_key" tableName="company"/>
+    </changeSet>
+    <changeSet author="mikas (generated)" id="1640195471403-6">
+        <addForeignKeyConstraint baseColumnNames="employee" baseTableName="company" constraintName="employee_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="employees"/>
+    </changeSet>
+</databaseChangeLog>

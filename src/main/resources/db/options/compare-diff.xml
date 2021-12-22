@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="mikas (generated)" id="1640197029692-1">
+        <createTable tableName="person">
+            <column autoIncrement="true" name="person_id" type="BIGINT UNSIGNED">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="NULL" name="name" type="VARCHAR(32)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="mikas (generated)" id="1640197029692-2">
+        <addUniqueConstraint columnNames="person_id" constraintName="person_id" tableName="person"/>
+    </changeSet>
+    <changeSet author="mikas (generated)" id="1640197029692-3">
+        <dropForeignKeyConstraint baseTableName="company" constraintName="employee_fk"/>
+    </changeSet>
+    <changeSet author="mikas (generated)" id="1640197029692-4">
+        <dropSequence sequenceName="company_id_seq"/>
+    </changeSet>
+    <changeSet author="mikas (generated)" id="1640197029692-5">
+        <dropSequence sequenceName="employees_id_seq"/>
+    </changeSet>
+    <changeSet author="mikas (generated)" id="1640197029692-6">
+        <dropUniqueConstraint constraintName="company_name_key" tableName="company"/>
+    </changeSet>
+    <changeSet author="mikas (generated)" id="1640197029692-7">
+        <dropTable tableName="company"/>
+    </changeSet>
+    <changeSet author="mikas (generated)" id="1640197029692-8">
+        <dropTable tableName="employees"/>
+    </changeSet>
+</databaseChangeLog>

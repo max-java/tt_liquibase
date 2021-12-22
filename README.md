@@ -47,3 +47,35 @@ select ID, TAG, COMMENTS, FILENAME from DATABASECHANGELOG;
 ```
 I.e. it used in DbChanges.class to print Db version on application startup
 ![log image](img/dbLog.png)
+
+## Liquibase Maven plugin has been added
+
+### DB Migration
+To generate ChangeLog from existed database do:
+1. add properties file with connection values of database migrate from and file save to (see src/main/resources/db/options/generateChangeLog.properties)
+2. add this path to plugin configuration
+```xml 
+<configuration>
+  <propertyFile>src/main/resources/db/options/generateChangeLog.properties</propertyFile>
+</configuration>
+```
+3. run
+```bash 
+mvn liquibase:generateChangeLog
+```
+
+### DB Comparing
+To prepare for this operation I run /initdb/init-maria.sql against maria_to_compare container db
+To find difference between two databases do:
+1. add properties file with connection values of source and destination databases, file to save difference in a form of ChangeLog, and
+changeLogFile (it could be not exist, but value need to be present, see src/main/resources/db/options/compareDatabases.properties).
+2. add this path to plugin configuration
+```xml 
+<configuration>
+  <propertyFile>src/main/resources/db/options/generateChangeLog.properties</propertyFile>
+</configuration>
+```
+3. run 
+```bash 
+mvn liquibase:diff
+```

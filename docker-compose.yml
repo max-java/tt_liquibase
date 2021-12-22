@@ -1,0 +1,41 @@
+version: '3.1'
+
+services:
+
+  psql_base_db:
+    image: postgres
+    container_name: psql_base_db
+    ports:
+      - "4432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: switcher
+#    volumes:
+#      - ./initdb/init-psql.sql:/docker-entrypoint-initdb.d/init.sql
+
+  maria_to_compare:
+    image: mariadb
+    container_name: maria_to_compare
+    ports:
+      - "4406:3306"
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: switcher
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+#    volumes:
+#      - ./initdb/init-maria.sql:/docker-entrypoint-initdb.d/init.sql
+
+  maria_to_migrate:
+    image: mariadb
+    container_name: maria_to_migrate
+    ports:
+      - "5506:3306"
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: switcher
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
